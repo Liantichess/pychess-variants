@@ -1,15 +1,15 @@
 export const variantsIni = `
-# Hybrid variant of Grand-chess and crazyhouse, using Grand-chess as a template
-[grandhouse:grand]
-startFen = r8r/1nbqkcabn1/pppppppppp/10/10/10/10/PPPPPPPPPP/1NBQKCABN1/R8R[] w - - 0 1
-pieceDrops = true
-capturesToHand = true
+# Lose at anti-chess win at anti-antichess.
+[anti_antichess:giveaway]
+extinctionValue = loss
+stalemateValue = loss
+castling = false
 
-# Hybrid variant of Gothic-chess and crazyhouse, using Capablanca as a template
-[gothhouse:capablanca]
-startFen = rnbqckabnr/pppppppppp/10/10/10/10/PPPPPPPPPP/RNBQCKABNR[] w KQkq - 0 1
-pieceDrops = true
-capturesToHand = true
+# Hybrid of antichess and atomic.
+[antiatomic:giveaway]
+blastOnCapture = true
+castling = false
+extinctionOpponentPieceCount = 1
 
 # Hybrid variant of Embassy chess and crazyhouse, using Embassy as a template
 [embassyhouse:embassy]
@@ -25,13 +25,11 @@ promotedPieceType = l:g n:g
 
 [shogun:crazyhouse]
 startFen = rnb+fkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNB+FKBNR[] w KQkq - 0 1
-commoner = c
 centaur = g
 archbishop = a
 chancellor = m
 fers = f
-promotionRegionWhite = *6 *7 *8
-promotionRegionBlack = *3 *2 *1
+promotionRank = 6
 promotionLimit = g:1 a:1 m:1 q:1
 promotionPieceTypes = -
 promotedPieceType = p:c n:g b:a r:m f:q
@@ -41,8 +39,16 @@ promotionZonePawnDrops = true
 whiteDropRegion = *1 *2 *3 *4 *5
 blackDropRegion = *4 *5 *6 *7 *8
 immobilityIllegal = true
+king = -
+commoner = c
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
+castling = false
 
-[orda:chess]
+[antiorda:chess]
 centaur = h
 knibis = a
 kniroo = l
@@ -50,10 +56,15 @@ silver = y
 promotionPieceTypes = qh
 startFen = lhaykahl/8/pppppppp/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1
 flagPiece = k
-flagRegionWhite = *8
-flagRegionBlack = *1
+whiteFlag = *8
+blackFlag = *1
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
 
-[synochess:pocketknight]
+[antisynochess:pocketknight]
 janggiCannon = c
 soldier = s
 horse = h
@@ -65,18 +76,42 @@ perpetualCheckIllegal = true
 flyingGeneral = true
 blackDropRegion = *5
 flagPiece = k
-flagRegionWhite = *8
-flagRegionBlack = *1
+whiteFlag = *8
+blackFlag = *1
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
 
-[shinobi:crazyhouse]
+[antiempire:chess]
+customPiece1 = e:mQcN
+customPiece2 = c:mQcB
+customPiece3 = t:mQcR
+customPiece4 = d:mQcK
+soldier = s
+promotionPieceTypes = q
+startFen = rnbqkbnr/pppppppp/8/8/8/PPPSSPPP/8/TECDKCET w kq - 0 1
+stalemateValue = loss
+nFoldValue = loss
+flagPiece = k
+whiteFlag = *8
+blackFlag = *1
+flyingGeneral = true
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
+
+[antishinobi:crazyhouse]
 commoner = c
 bers = d
 archbishop = j
 fers = m
 shogiKnight = h
 lance = l
-promotionRegionWhite = *7 *8
-promotionRegionBlack = *2 *1
+promotionRank = 7
 promotionPieceTypes = -
 promotedPieceType = p:c m:b h:n l:r
 mandatoryPiecePromotion = true
@@ -88,60 +123,28 @@ capturesToHand = false
 whiteDropRegion = *1 *2 *3 *4
 immobilityIllegal = true
 flagPiece = k
-flagRegionWhite = *8
-flagRegionBlack = *1
+whiteFlag = *8
+blackFlag = *1
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
 
-[shinobiplus:crazyhouse]
-commoner = c
-bers = d
-dragonHorse = s
-archbishop = j
-fers = m
-shogiKnight = h
-lance = l
-promotionRegionWhite = *7 *8
-promotionRegionBlack = *2 *1
-promotionPieceTypes = -
-promotedPieceType = p:c m:b h:n l:r
-mandatoryPiecePromotion = true
-stalemateValue = loss
-nFoldRule = 4
-perpetualCheckIllegal = true
-startFen = rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/4K3[JDSCLHM] w kq - 0 1
-capturesToHand = false
-whiteDropRegion = *1 *2 *3 *4
-immobilityIllegal = true
-flagPiece = k
-flagRegionWhite = *8
-flagRegionBlack = *1
+[anticapablanca:capablanca]
+# Hybrid of antichess and minishogi.
+# This might look like a coffee variant, but it isn't.
+[antiminishogi:minishogi]
+king = -
+commoner = k
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
+castling = false
 
-[ordamirror:chess]
-centaur = h
-knibis = a
-kniroo = l
-customPiece1 = f:mQcN
-promotionPieceTypes = lhaf
-startFen = lhafkahl/8/pppppppp/8/8/PPPPPPPP/8/LHAFKAHL w - - 0 1
-flagPiece = k
-flagRegionWhite = *8
-flagRegionBlack = *1
-
-[empire:chess]
-customPiece1 = e:mQcN
-customPiece2 = c:mQcB
-customPiece3 = t:mQcR
-customPiece4 = d:mQcK
-soldier = s
-promotionPieceTypes = q
-startFen = rnbqkbnr/pppppppp/8/8/8/PPPSSPPP/8/TECDKCET w kq - 0 1
-stalemateValue = loss
-nFoldValue = loss
-flagPiece = k
-flagRegionWhite = *8
-flagRegionBlack = *1
-flyingGeneral = true
-
-[chak]
+[antichak]
 maxRank = 9
 maxFile = 9
 rook = r
@@ -159,86 +162,99 @@ mobilityRegionWhiteCustomPiece6 = *5 *6 *7 *8 *9
 mobilityRegionWhiteCustomPiece3 = *5 *6 *7 *8 *9
 mobilityRegionBlackCustomPiece6 = *1 *2 *3 *4 *5
 mobilityRegionBlackCustomPiece3 = *1 *2 *3 *4 *5
-promotionRegionWhite = *5 *6 *7 *8 *9
-promotionRegionBlack = *5 *4 *3 *2 *1
+promotionRank = 5
 promotionPieceTypes = -
 mandatoryPiecePromotion = true
 promotedPieceType = p:w k:d
-extinctionValue = loss
-extinctionPieceTypes = kd
-extinctionPseudoRoyal = true
 flagPiece = d
-flagRegionWhite = e8
-flagRegionBlack = e2
+whiteFlag = e8
+blackFlag = e2
 nMoveRule = 50
 nFoldRule = 3
 nFoldValue = draw
-stalemateValue = loss
+stalemateValue = win
+extinctionValue = win
+mustCapture = true
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
 
-[chennis]
-maxRank = 7
-maxFile = 7
-mobilityRegionWhiteKing = b1 c1 d1 e1 f1 b2 c2 d2 e2 f2 b3 c3 d3 e3 f3 b4 c4 d4 e4 f4
-mobilityRegionBlackKing = b4 c4 d4 e4 f4 b5 c5 d5 e5 f5 b6 c6 d6 e6 f6 b7 c7 d7 e7 f7
-customPiece1 = p:fmWfceF
-cannon = c
-commoner = m
-fers = f
-soldier = s
-king = k
-bishop = b
-knight = n
-rook = r
-promotionPieceTypes = -
-promotedPieceType = p:r f:c s:b m:n
-promotionRegionWhite = *1 *2 *3 *4 *5 *6 *7
-promotionRegionBlack = *7 *6 *5 *4 *3 *2 *1
-startFen = 1fkm3/1p1s3/7/7/7/3S1P1/3MKF1[] w - 0 1
+[antigrandhouse:grand]
+startFen = r8r/1nbqkcabn1/pppppppppp/10/10/10/10/PPPPPPPPPP/1NBQKCABN1/R8R[] w - - 0 1
 pieceDrops = true
 capturesToHand = true
-pieceDemotion = true
-mandatoryPiecePromotion = true
-dropPromoted = true
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
 castling = false
-stalemateValue = loss
 
-# Mansindam (Pantheon tale)
-# A variant that combines drop rule and powerful pieces, and there is no draw
-[mansindam]
-variantTemplate = shogi
-pieceToCharTable = PNBR.Q.CMA.++++...++Kpnbr.q.cma.++++...++k
-maxFile = 9
-maxRank = 9
-pocketSize = 8
-startFen = rnbakqcnm/9/ppppppppp/9/9/9/PPPPPPPPP/9/MNCQKABNR[] w - - 0 1
+# Hybrid of antichess and zh. Antichess is the base variant.
+[antihouse:giveaway]
 pieceDrops = true
 capturesToHand = true
-shogiPawn = p
-knight = n
-bishop = b
-rook = r
-queen = q
-archbishop = c
-chancellor = m
-amazon = a
-king = k
-commoner = g
-centaur = e
-dragonHorse = h
-bers = t
-customPiece1 = i:BNW
-customPiece2 = s:RNF
-promotionRegionWhite = *7 *8 *9
-promotionRegionBlack = *3 *2 *1
-mandatoryPiecePromotion = true
-doubleStep = false
+pocketSize = 6
 castling = false
-promotedPieceType = p:g n:e b:h r:t c:i m:s
-dropNoDoubled = p
-stalemateValue = loss
-nMoveRule = 0
-nFoldValue = loss
+
+# antichess with a pawn structure following horde rules.
+[antipawns:horde]
+king = -
+commoner = k
+startFen = pppppppp/pppppppp/pppppppp/8/8/PPPPPPPP/PPPPPPPP/PPPPPPPP w - - 0 1
+promotionPieceTypes = nbrqk
+stalemateValue = win
+extinctionValue = win
+mustCapture = true
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
+castling = false
+
+# Hybrid of antichess and placement.
+[antiplacement:placement]
+king = -
+commoner = k
+promotionPieceTypes = nbrqk
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
+castling = false
+
+# Hybrid of antichess and hoppelpoppel
+[antihoppelpoppel:hoppelpoppel]
+king = -
+commoner = k
+promotionPieceTypes = nbrqk
+mustCapture = true
+stalemateValue = win
+extinctionValue = win
+extinctionPieceTypes = *
+extinctionPseudoRoyal = false
+castling = false
+
+# Hybrid of 3 check and antichess.
+[coffee_3check:3check]
+startFen = rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 3+3 0 1
+checkCounting = true
+mustCapture = true
+
+# Hybrid of rk and antichess
+[coffeerace:racingkings]
+mustCapture = true
+
+# Hybrid of antichess and zh. Zh is th base variant.
+[coffeehouse:crazyhouse]
+mustCapture = true
+
+# Hybrid variant of antichess and king of the hill
+[coffeehill:kingofthehill]
+mustCapture = true
+
+# Hybrid variant of antichess, atomic and king of the hill
+[atomic_giveaway_hill:giveaway]
+blastOnCapture = true
 flagPiece = k
-flagRegionWhite = *9
-flagRegionBlack = *1
-immobilityIllegal = true`
+whiteFlag = d4 e4 d5 e5
+blackFlag = d4 e4 d5 e5
+castling = false`

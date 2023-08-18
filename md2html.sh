@@ -17,7 +17,7 @@ for f in *.md; do
 done
 
 
-SRC='https://github.com/gbtami/pychess-variants/blob/master'; 
+SRC='https://github.com/srimethan/liantichess/blob/master'; 
 #DST='https://www.pychess.org';
 DST='https://cdn.jsdelivr.net/gh/gbtami/pychess-variants\@1.9.52';
 find . -type f -name "*.html" -exec perl -pi -e s,$SRC,$DST,g '{}' +
